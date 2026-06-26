@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full-Stack Web Developer Portfolio — Crafting premium digital experiences with code, creativity, and precision.">
+  <meta name="keywords" content="web developer, full-stack developer, portfolio, React, Node.js, UI/UX">
+  <title>Dev Portfolio | Full-Stack Web Developer</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='30' y='30' width='40' height='40' fill='black' transform='rotate(45 50 50)'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-terminal">
+        <div class="terminal-bar"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="terminal-title">init.sh</span></div>
+        <div class="terminal-body" id="loader-terminal-body">
+          <div class="terminal-line"><span class="prompt">$</span> <span class="loader-cmd" id="loader-cmd"></span><span class="cursor-blink">|</span></div>
+          <div class="loader-output" id="loader-output"></div>
+        </div>
+      </div>
+      <div class="loader-progress-wrap"><div class="loader-progress-bar" id="loader-bar"></div></div>
+      <div class="loader-percent" id="loader-percent">0%</div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <a href="#hero" class="nav-logo"><span class="logo-bracket">&lt;</span>Dev<span class="logo-slash">/</span><span class="logo-bracket">&gt;</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+      <li><a href="#services" class="nav-link" data-section="services">Services</a></li>
+      <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+      <li><a href="#stack" class="nav-link" data-section="stack">Stack</a></li>
+      <li><a href="#testimonials" class="nav-link" data-section="testimonials">Testimonials</a></li>
+      <li><a href="#contact" class="nav-link cta-nav" data-section="contact">Let's Talk</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#about" class="mob-link">About</a>
+    <a href="#services" class="mob-link">Services</a>
+    <a href="#projects" class="mob-link">Projects</a>
+    <a href="#stack" class="mob-link">Stack</a>
+    <a href="#testimonials" class="mob-link">Testimonials</a>
+    <a href="#contact" class="mob-link">Contact</a>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="hero" class="hero-section">
+    <canvas id="code-canvas"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge reveal-up"><span class="badge-dot"></span>Available for freelance</div>
+      <h1 class="hero-name reveal-up">Aadi<br><span class="name-last"></span></h1>
+      <div class="hero-role reveal-up">
+        <span class="role-prefix">&lt;</span><span id="typed-role"></span><span class="role-suffix"> /&gt;</span>
+      </div>
+      <p class="hero-desc reveal-up">I architect immersive digital experiences — where elegant code meets stunning design. Turning ideas into pixel-perfect, high-performance web applications.</p>
+      <div class="hero-actions reveal-up">
+        <a href="#projects" class="btn-primary magnetic" id="cta-work">View My Work <span class="btn-arrow">→</span></a>
+        <a href="#contact" class="btn-ghost magnetic">Let's Collaborate</a>
+      </div>
+      <div class="hero-scroll reveal-up">
+        <div class="scroll-line"></div>
+        <span>Scroll to explore</span>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item reveal-up"><span class="stat-num" data-count="50">0</span><span class="stat-plus">+</span><span class="stat-label">Projects Done</span></div>
+      <div class="stat-item reveal-up"><span class="stat-num" data-count="5">0</span><span class="stat-plus">+</span><span class="stat-label">Years Coding</span></div>
+      <div class="stat-item reveal-up"><span class="stat-num" data-count="30">0</span><span class="stat-plus">+</span><span class="stat-label">Happy Clients</span></div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about" class="about-section section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <div class="section-label reveal-up"><span class="label-line"></span>About Me</div>
+          <h2 class="section-title reveal-up">I craft code<br><em>like poetry.</em></h2>
+          <p class="about-body reveal-up">I'm a full-stack developer with a passion for building things that are both technically excellent and visually extraordinary. I believe great software isn't just functional — it's an experience.</p>
+          <p class="about-body reveal-up">From scalable backend architectures to pixel-perfect frontends, I bridge the gap between engineering rigor and creative vision. Every line of code I write has purpose.</p>
+          <div class="about-tags reveal-up">
+            <span class="tag">Problem Solver</span>
+            <span class="tag">Performance Obsessed</span>
+            <span class="tag">Clean Code Advocate</span>
+            <span class="tag">UI Perfectionist</span>
+          </div>
+        </div>
+        <div class="about-visual reveal-up">
+          <div class="terminal-card">
+            <div class="terminal-bar"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="terminal-title">about.js</span></div>
+            <div class="terminal-body code-block">
+              <div class="code-line"><span class="kw">const</span> <span class="var">developer</span> <span class="op">=</span> <span class="brace">{</span></div>
+              <div class="code-line indent"><span class="prop">name</span><span class="op">:</span> <span class="str">"Aadi"</span><span class="comma">,</span></div>
+              <div class="code-line indent"><span class="prop">role</span><span class="op">:</span> <span class="str">"Full-Stack Dev"</span><span class="comma">,</span></div>
+              <div class="code-line indent"><span class="prop">location</span><span class="op">:</span> <span class="str">"San Francisco, CA"</span><span class="comma">,</span></div>
+              <div class="code-line indent"><span class="prop">passions</span><span class="op">:</span> <span class="brace">[</span></div>
+              <div class="code-line indent2"><span class="str">"Clean Architecture"</span><span class="comma">,</span></div>
+              <div class="code-line indent2"><span class="str">"Open Source"</span><span class="comma">,</span></div>
+              <div class="code-line indent2"><span class="str">"Coffee"</span></div>
+              <div class="code-line indent"><span class="brace">]</span><span class="comma">,</span></div>
+              <div class="code-line indent"><span class="prop">available</span><span class="op">:</span> <span class="bool">true</span></div>
+              <div class="code-line"><span class="brace">}</span><span class="comma">;</span></div>
+              <div class="code-line">&nbsp;</div>
+              <div class="code-line"><span class="kw">export default</span> <span class="var">developer</span><span class="comma">;</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section id="services" class="services-section section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal-up"><span class="label-line"></span>What I Do</div>
+        <h2 class="section-title reveal-up">Services that<br><em>elevate brands.</em></h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card glass-card reveal-up" data-delay="0">
+          <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg></div>
+          <div class="service-num">01</div>
+          <h3 class="service-title">UI/UX Design</h3>
+          <p class="service-desc">Wireframes, prototypes, and pixel-perfect interfaces that users love. Design systems built for scale.</p>
+          <ul class="service-list">
+            <li>Figma Prototyping</li>
+            <li>Design Systems</li>
+            <li>User Research</li>
+          </ul>
+          <div class="card-glow"></div>
+        </div>
+        <div class="service-card glass-card reveal-up" data-delay="100">
+          <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></div>
+          <div class="service-num">02</div>
+          <h3 class="service-title">Frontend Dev</h3>
+          <p class="service-desc">React, Next.js, and Vue applications with buttery-smooth animations and 100/100 Lighthouse scores.</p>
+          <ul class="service-list">
+            <li>React / Next.js</li>
+            <li>GSAP Animations</li>
+            <li>Performance Tuning</li>
+          </ul>
+          <div class="card-glow"></div>
+        </div>
+        <div class="service-card glass-card reveal-up" data-delay="200">
+          <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg></div>
+          <div class="service-num">03</div>
+          <h3 class="service-title">Backend Dev</h3>
+          <p class="service-desc">Scalable APIs, microservices, and database architectures. Node.js, Python, PostgreSQL and more.</p>
+          <ul class="service-list">
+            <li>REST & GraphQL APIs</li>
+            <li>Database Design</li>
+            <li>Cloud Deployment</li>
+          </ul>
+          <div class="card-glow"></div>
+        </div>
+        <div class="service-card glass-card reveal-up" data-delay="300">
+          <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg></div>
+          <div class="service-num">04</div>
+          <h3 class="service-title">DevOps & Deploy</h3>
+          <p class="service-desc">CI/CD pipelines, containerization, and cloud infrastructure. Your app, always online and fast.</p>
+          <ul class="service-list">
+            <li>Docker / Kubernetes</li>
+            <li>AWS / Vercel</li>
+            <li>CI/CD Pipelines</li>
+          </ul>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section id="projects" class="projects-section section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal-up"><span class="label-line"></span>Selected Work</div>
+        <h2 class="section-title reveal-up">Projects that<br><em>speak for themselves.</em></h2>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card reveal-up" data-delay="0">
+          <div class="project-img" style="background: url('project_pic/beseriousofficial.in.png') center/cover;">
+            <div class="project-overlay">
+              <a href="#" class="project-link magnetic">View Project →</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags"><span class="ptag">Web Development</span><span class="ptag">E-commerce</span></div>
+            <h3 class="project-name">BeSerious.in</h3>
+            <p class="project-desc">A comprehensive business or e-commerce platform designed for seamless user experience.</p>
+          </div>
+        </div>
+        <div class="project-card reveal-up" data-delay="100">
+          <div class="project-img" style="background: url('project_pic/travelwebsite.png') center/cover;">
+            <div class="project-overlay">
+              <a href="#" class="project-link magnetic">View Project →</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags"><span class="ptag">UI/UX</span><span class="ptag">Frontend</span></div>
+            <h3 class="project-name">Travel & Trekking Website</h3>
+            <p class="project-desc">An engaging platform to discover and book travel and trekking adventures.</p>
+          </div>
+        </div>
+        <div class="project-card reveal-up" data-delay="200">
+          <div class="project-img" style="background: url('project_pic/chatbot.png') center/cover;">
+            <div class="project-overlay">
+              <a href="#" class="project-link magnetic">View Project →</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags"><span class="ptag">AI</span><span class="ptag">Dashboard</span></div>
+            <h3 class="project-name">Chatbot & Admin Panel</h3>
+            <p class="project-desc">An intelligent chatbot integration with a comprehensive admin dashboard for management.</p>
+          </div>
+        </div>
+        <div class="project-card reveal-up" data-delay="300">
+          <div class="project-img" style="background: url('project_pic/smartigrretionsystem.png') center/cover;">
+            <div class="project-overlay">
+              <a href="#" class="project-link magnetic">View Project →</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags"><span class="ptag">IoT</span><span class="ptag">System Design</span></div>
+            <h3 class="project-name">Smart Irrigation System</h3>
+            <p class="project-desc">A smart solution for automated irrigation monitoring and control.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TECH STACK ===================== -->
+  <section id="stack" class="stack-section section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal-up"><span class="label-line"></span>Tech Stack</div>
+        <h2 class="section-title reveal-up">Tools I master<br><em>every day.</em></h2>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-item reveal-up" data-delay="0">
+          <div class="stack-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"></ellipse><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"></ellipse></svg></div>
+          <div class="stack-name">React</div>
+          <div class="stack-bar-wrap"><div class="stack-bar" data-width="95"></div></div>
+          <div class="stack-pct">95%</div>
+        </div>
+        <div class="stack-item reveal-up" data-delay="60">
+          <div class="stack-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+          <div class="stack-name">Node.js</div>
+          <div class="stack-bar-wrap"><div class="stack-bar" data-width="90"></div></div>
+          <div class="stack-pct">90%</div>
+        </div>
+        <div class="stack-item reveal-up" data-delay="120">
+          <div class="stack-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 22 2 22"></polygon></svg></div>
+          <div class="stack-name">Next.js</div>
+          <div class="stack-bar-wrap"><div class="stack-bar" data-width="92"></div></div>
+          <div class="stack-pct">92%</div>
+        </div>
+        <div class="stack-item reveal-up" data-delay="180">
+          <div class="stack-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg></div>
+          <div class="stack-name">Python</div>
+          <div class="stack-bar-wrap"><div class="stack-bar" data-width="85"></div></div>
+          <div class="stack-pct">85%</div>
+        </div>
+        <div class="stack-item reveal-up" data-delay="240">
+          <div class="stack-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg></div>
+          <div class="stack-name">PostgreSQL</div>
+          <div class="stack-bar-wrap"><div class="stack-bar" data-width="88"></div></div>
+          <div class="stack-pct">88%</div>
+        </div>
+        <div class="stack-item reveal-up" data-delay="300">
+          <div class="stack-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+          <div class="stack-name">Docker</div>
+          <div class="stack-bar-wrap"><div class="stack-bar" data-width="80"></div></div>
+          <div class="stack-pct">80%</div>
+        </div>
+        <div class="stack-item reveal-up" data-delay="360">
+          <div class="stack-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"></path></svg></div>
+          <div class="stack-name">AWS</div>
+          <div class="stack-bar-wrap"><div class="stack-bar" data-width="78"></div></div>
+          <div class="stack-pct">78%</div>
+        </div>
+        <div class="stack-item reveal-up" data-delay="420">
+          <div class="stack-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6"></path><path d="M8 6l-6 6 6 6"></path></svg></div>
+          <div class="stack-name">TypeScript</div>
+          <div class="stack-bar-wrap"><div class="stack-bar" data-width="93"></div></div>
+          <div class="stack-pct">93%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section id="testimonials" class="testimonials-section section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal-up"><span class="label-line"></span>Testimonials</div>
+        <h2 class="section-title reveal-up">Words from<br><em>clients I love.</em></h2>
+      </div>
+      <div class="testimonials-slider" id="tslider">
+        <div class="tslide active glass-card">
+          <div class="tquote">"</div>
+          <p class="ttext">Alex delivered our platform in record time without compromising a single pixel of quality. The code is clean, documented, and a pleasure to maintain. Absolute top-tier developer.</p>
+          <div class="tclient">
+            <div class="tclient-avatar">SC</div>
+            <div class="tclient-info"><strong>Sarah Chen</strong><span>CTO, NexusAI</span></div>
+            <div class="trating">★★★★★</div>
+          </div>
+        </div>
+        <div class="tslide glass-card">
+          <div class="tquote">"</div>
+          <p class="ttext">Working with Alex felt like having a 10-person team. He anticipated every edge case, built for scale from day one, and the final product blew our investors away. Highly recommended.</p>
+          <div class="tclient">
+            <div class="tclient-avatar">MR</div>
+            <div class="tclient-info"><strong>Marcus Rivera</strong><span>Founder, CloudForge</span></div>
+            <div class="trating">★★★★★</div>
+          </div>
+        </div>
+        <div class="tslide glass-card">
+          <div class="tquote">"</div>
+          <p class="ttext">The attention to detail is extraordinary. Our app went from concept to launch in 6 weeks with zero bugs in production. Alex's work speaks for itself — pure engineering artistry.</p>
+          <div class="tclient">
+            <div class="tclient-avatar">JK</div>
+            <div class="tclient-info"><strong>James Kim</strong><span>CEO, Synapse Labs</span></div>
+            <div class="trating">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="tslider-controls">
+        <button class="tprev" id="tprev" aria-label="Previous">←</button>
+        <div class="tdots" id="tdots">
+          <span class="tdot active" data-idx="0"></span>
+          <span class="tdot" data-idx="1"></span>
+          <span class="tdot" data-idx="2"></span>
+        </div>
+        <button class="tnext" id="tnext" aria-label="Next">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="contact-section section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal-up"><span class="label-line"></span>Get In Touch</div>
+        <h2 class="section-title reveal-up">Let's build<br><em>something great.</em></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal-up">
+          <p class="contact-body">Have a project in mind? I'm open to freelance, full-time, and collaboration opportunities. Let's talk.</p>
+          <div class="contact-links">
+            <a href="mailto:contact@aadi.com" class="contact-link magnetic"><span class="cl-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>contact@aadi.com</a>
+            <a href="https://github.com" target="_blank" class="contact-link magnetic"><span class="cl-icon">⌥</span>github.com/aadi</a>
+            <a href="https://linkedin.com" target="_blank" class="contact-link magnetic"><span class="cl-icon">in</span>linkedin.com/in/aadi</a>
+          </div>
+        </div>
+        <div class="contact-form-wrap reveal-up">
+          <div class="terminal-card form-terminal">
+            <div class="terminal-bar"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="terminal-title">contact.sh</span></div>
+            <form class="contact-form" id="contact-form" novalidate>
+              <div class="form-field">
+                <label class="form-label"><span class="prompt-lbl">$</span> name</label>
+                <input type="text" id="f-name" name="name" class="form-input" placeholder="Your name..." autocomplete="off" required>
+              </div>
+              <div class="form-field">
+                <label class="form-label"><span class="prompt-lbl">$</span> email</label>
+                <input type="email" id="f-email" name="email" class="form-input" placeholder="your@email.com" autocomplete="off" required>
+              </div>
+              <div class="form-field">
+                <label class="form-label"><span class="prompt-lbl">$</span> message</label>
+                <textarea id="f-msg" name="message" class="form-input form-textarea" placeholder="> Enter your message here..." required></textarea>
+              </div>
+              <button type="submit" class="btn-primary submit-btn magnetic" id="submit-btn">
+                <span class="submit-text">Send Message</span>
+                <span class="submit-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+              </button>
+              <div class="form-success" id="form-success">
+                <span class="success-icon">✓</span> Message sent! I'll be in touch soon.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-code-line">
+      <span class="fc kw">const</span> <span class="fc var">year</span> <span class="fc op">=</span> <span class="fc num" id="footer-year">2025</span><span class="fc op">;</span> &nbsp;&nbsp;
+      <span class="fc comment">// All rights reserved</span>
+    </div>
+    <div class="footer-main">
+      <div class="footer-logo"><span class="logo-bracket">&lt;</span>Dev<span class="logo-slash">/</span><span class="logo-bracket">&gt;</span></div>
+      <div class="footer-socials">
+        <a href="#" class="social-link magnetic" title="GitHub">GH</a>
+        <a href="#" class="social-link magnetic" title="LinkedIn">in</a>
+        <a href="#" class="social-link magnetic" title="Twitter">TW</a>
+        <a href="#" class="social-link magnetic" title="Dribbble">DR</a>
+      </div>
+      <p class="footer-copy">© <span id="copy-year">2025</span> Aadi. Crafted with passion.</p>
+    </div>
+  </footer>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <!-- Typed.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
