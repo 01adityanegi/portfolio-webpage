@@ -108,7 +108,7 @@
               <div class="code-line"><span class="kw">const</span> <span class="var">developer</span> <span class="op">=</span> <span class="brace">{</span></div>
               <div class="code-line indent"><span class="prop">name</span><span class="op">:</span> <span class="str">"Aadi"</span><span class="comma">,</span></div>
               <div class="code-line indent"><span class="prop">role</span><span class="op">:</span> <span class="str">"Full-Stack Dev"</span><span class="comma">,</span></div>
-              <div class="code-line indent"><span class="prop">location</span><span class="op">:</span> <span class="str">"San Francisco, CA"</span><span class="comma">,</span></div>
+              <div class="code-line indent"><span class="prop">location</span><span class="op">:</span> <span class="str">"India"</span><span class="comma">,</span></div>
               <div class="code-line indent"><span class="prop">passions</span><span class="op">:</span> <span class="brace">[</span></div>
               <div class="code-line indent2"><span class="str">"Clean Architecture"</span><span class="comma">,</span></div>
               <div class="code-line indent2"><span class="str">"Open Source"</span><span class="comma">,</span></div>
@@ -315,7 +315,7 @@
       <div class="testimonials-slider" id="tslider">
         <div class="tslide active glass-card">
           <div class="tquote">"</div>
-          <p class="ttext">Alex delivered our platform in record time without compromising a single pixel of quality. The code is clean, documented, and a pleasure to maintain. Absolute top-tier developer.</p>
+          <p class="ttext">Aadi delivered our platform in record time without compromising a single pixel of quality. The code is clean, documented, and a pleasure to maintain. Absolute top-tier developer.</p>
           <div class="tclient">
             <div class="tclient-avatar">SC</div>
             <div class="tclient-info"><strong>Sarah Chen</strong><span>CTO, NexusAI</span></div>
@@ -324,7 +324,7 @@
         </div>
         <div class="tslide glass-card">
           <div class="tquote">"</div>
-          <p class="ttext">Working with Alex felt like having a 10-person team. He anticipated every edge case, built for scale from day one, and the final product blew our investors away. Highly recommended.</p>
+          <p class="ttext">Working with Aadi felt like having a 10-person team. He anticipated every edge case, built for scale from day one, and the final product blew our investors away. Highly recommended.</p>
           <div class="tclient">
             <div class="tclient-avatar">MR</div>
             <div class="tclient-info"><strong>Marcus Rivera</strong><span>Founder, CloudForge</span></div>
@@ -333,7 +333,7 @@
         </div>
         <div class="tslide glass-card">
           <div class="tquote">"</div>
-          <p class="ttext">The attention to detail is extraordinary. Our app went from concept to launch in 6 weeks with zero bugs in production. Alex's work speaks for itself — pure engineering artistry.</p>
+          <p class="ttext">The attention to detail is extraordinary. Our app went from concept to launch in 6 weeks with zero bugs in production. Aadi's work speaks for itself — pure engineering artistry.</p>
           <div class="tclient">
             <div class="tclient-avatar">JK</div>
             <div class="tclient-info"><strong>James Kim</strong><span>CEO, Synapse Labs</span></div>
@@ -374,23 +374,23 @@
             <div class="terminal-bar"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="terminal-title">contact.sh</span></div>
             <form class="contact-form" id="contact-form" novalidate>
               <div class="form-field">
-                <label class="form-label"><span class="prompt-lbl">$</span> name</label>
+                <label class="form-label" for="f-name"><span class="prompt-lbl">$</span> name</label>
                 <input type="text" id="f-name" name="name" class="form-input" placeholder="Your name..." autocomplete="off" required>
               </div>
               <div class="form-field">
-                <label class="form-label"><span class="prompt-lbl">$</span> email</label>
+                <label class="form-label" for="f-email"><span class="prompt-lbl">$</span> email</label>
                 <input type="email" id="f-email" name="email" class="form-input" placeholder="your@email.com" autocomplete="off" required>
               </div>
               <div class="form-field">
-                <label class="form-label"><span class="prompt-lbl">$</span> message</label>
+                <label class="form-label" for="f-msg"><span class="prompt-lbl">$</span> message</label>
                 <textarea id="f-msg" name="message" class="form-input form-textarea" placeholder="> Enter your message here..." required></textarea>
               </div>
               <button type="submit" class="btn-primary submit-btn magnetic" id="submit-btn">
                 <span class="submit-text">Send Message</span>
                 <span class="submit-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
               </button>
-              <div class="form-success" id="form-success">
-                <span class="success-icon">✓</span> Message sent! I'll be in touch soon.
+              <div class="form-success" id="form-success" role="status" aria-live="polite">
+                <span class="success-icon">✓</span> Your email app is opening.
               </div>
             </form>
           </div>
