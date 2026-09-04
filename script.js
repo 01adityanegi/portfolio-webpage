@@ -1,8 +1,4 @@
-/* ============================================================
-   DEV PORTFOLIO — script.js
-   ============================================================ */
 
-// ── CURSOR ───────────────────────────────────────────────────
 const cursor = document.getElementById('cursor');
 const follower = document.getElementById('cursor-follower');
 let mx = 0, my = 0, fx = 0, fy = 0;
