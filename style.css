@@ -10,6 +10,8 @@
 }
 html{scroll-behavior:smooth;overflow-x:hidden}
 body{background:var(--navy);color:var(--text);font-family:var(--font-body);overflow-x:hidden;cursor:none}
+button,input,textarea{font:inherit}
+:focus-visible{outline:2px solid var(--neon);outline-offset:4px}
 
 /* CURSOR */
 .cursor{position:fixed;width:8px;height:8px;background:var(--neon);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:screen}
@@ -138,6 +140,7 @@ body:hover .cursor{opacity:1}
 .project-code-bg .pc1{color:var(--neon)}.project-code-bg .pc2{color:var(--cyan);padding-left:20px}.project-code-bg .pc3{color:var(--purple);padding-left:40px}
 .project-overlay{position:absolute;inset:0;background:rgba(5,13,26,.85);display:flex;align-items:center;justify-content:center;gap:20px;opacity:0;transition:opacity .3s}
 .project-card:hover .project-overlay{opacity:1}
+.project-card:focus-within .project-overlay{opacity:1}
 .project-link{color:var(--neon);border:1px solid rgba(0,255,136,.3);padding:10px 20px;border-radius:6px;text-decoration:none;font-family:var(--font-code);font-size:13px;transition:background .3s}
 .project-link:hover{background:rgba(0,255,136,.1)}
 .project-info{padding:28px}
@@ -227,6 +230,8 @@ body:hover .cursor{opacity:1}
 .hero-content{padding-top:140px}
 }
 @media(max-width:768px){
+body{cursor:auto}
+.cursor,.cursor-follower{display:none}
 .nav-links{display:none}
 .hamburger{display:flex}
 .hero-name{font-size:clamp(48px,12vw,80px)}
@@ -235,6 +240,9 @@ body:hover .cursor{opacity:1}
 .section{padding:80px 0}
 .section-title{font-size:clamp(32px,8vw,52px)}
 .about-text .section-title{font-size:clamp(28px,7vw,46px)}
+.mobile-menu{width:min(280px,85vw)}
+.tslide{padding:32px 24px}
+.trating{margin-left:0;width:100%}
 }
 @media(max-width:480px){
 .hero-actions{flex-direction:column}
@@ -243,4 +251,12 @@ body:hover .cursor{opacity:1}
 .hero-stats{flex-direction:column;gap:20px}
 .ttext{font-size:16px}
 .contact-grid{gap:40px}
+.hero-content{padding-left:6%;padding-right:6%}
+.container{padding-left:6%;padding-right:6%}
+.service-card,.project-info{padding:24px}
+.contact-form{padding:22px}
+}
+
+@media(prefers-reduced-motion:reduce){
+*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
