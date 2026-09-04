@@ -1,21 +1,24 @@
 
 const cursor = document.getElementById('cursor');
 const follower = document.getElementById('cursor-follower');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let mx = 0, my = 0, fx = 0, fy = 0;
 
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  cursor.style.left = mx + 'px';
-  cursor.style.top = my + 'px';
-});
+if (cursor && follower && !reducedMotion && !window.matchMedia('(pointer: coarse)').matches) {
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top = my + 'px';
+  });
 
-(function animFollower() {
-  fx += (mx - fx) * 0.12;
-  fy += (my - fy) * 0.12;
-  follower.style.left = fx + 'px';
-  follower.style.top = fy + 'px';
-  requestAnimationFrame(animFollower);
-})();
+  (function animFollower() {
+    fx += (mx - fx) * 0.12;
+    fy += (my - fy) * 0.12;
+    follower.style.left = fx + 'px';
+    follower.style.top = fy + 'px';
+    requestAnimationFrame(animFollower);
+  })();
+}
 
 document.querySelectorAll('a,button,.magnetic,.service-card,.project-card,.stack-item,.social-link,.tprev,.tnext').forEach(el => {
   el.addEventListener('mouseenter', () => { cursor.classList.add('hover-active'); follower.classList.add('hover-active'); });
@@ -24,7 +27,7 @@ document.querySelectorAll('a,button,.magnetic,.service-card,.project-card,.stack
 
 // ── CODE CANVAS BACKGROUND ───────────────────────────────────
 const canvas = document.getElementById('code-canvas');
-const ctx = canvas.getContext('2d');
+const ctx = canvas ? canvas.getContext('2d') : null;
 
 const CODE_SNIPPETS = [
   'const app = express()', 'import React from "react"', 'function render() {',
@@ -43,6 +46,7 @@ const CODE_SNIPPETS = [
 let codeParticles = [];
 
 function resizeCanvas() {
+  if (!canvas || !ctx) return;
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   initParticles();
@@ -72,6 +76,7 @@ function createParticle(random) {
 }
 
 function drawCanvas() {
+  if (!canvas || !ctx) return;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   codeParticles.forEach((p, i) => {
     ctx.font = `${p.size}px 'Fira Code', monospace`;
@@ -88,9 +93,11 @@ function drawCanvas() {
   requestAnimationFrame(drawCanvas);
 }
 
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
-drawCanvas();
+if (canvas && ctx && !reducedMotion) {
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+  drawCanvas();
+}
 
 // ── LOADER ───────────────────────────────────────────────────
 const loader = document.getElementById('loader');
@@ -149,8 +156,11 @@ function initPage() {
   initTestimonials();
   initContactForm();
   initMagnetic();
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
-  document.getElementById('copy-year').textContent = new Date().getFullYear();
+  const year = new Date().getFullYear();
+  const footerYear = document.getElementById('footer-year');
+  const copyYear = document.getElementById('copy-year');
+  if (footerYear) footerYear.textContent = year;
+  if (copyYear) copyYear.textContent = year;
 }
 
 // ── GSAP SCROLL ANIMATIONS ────────────────────────────────────
@@ -221,6 +231,7 @@ function animateStackBars() {
 // ── NAVBAR ────────────────────────────────────────────────────
 function initNavbar() {
   const navbar = document.getElementById('navbar');
+  if (!navbar) return;
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 60);
   });
@@ -230,6 +241,7 @@ function initNavbar() {
 function initMobileMenu() {
   const btn = document.getElementById('hamburger');
   const menu = document.getElementById('mobile-menu');
+  if (!btn || !menu) return;
   btn.addEventListener('click', () => {
     btn.classList.toggle('open');
     menu.classList.toggle('open');
@@ -267,6 +279,9 @@ function initCounters() {
 function initTestimonials() {
   const slides = document.querySelectorAll('.tslide');
   const dots = document.querySelectorAll('.tdot');
+  const next = document.getElementById('tnext');
+  const previous = document.getElementById('tprev');
+  if (!slides.length || !dots.length || !next || !previous) return;
   let current = 0;
 
   function goTo(idx) {
@@ -277,10 +292,10 @@ function initTestimonials() {
     dots[current].classList.add('active');
   }
 
-  document.getElementById('tnext').addEventListener('click', () => goTo(current + 1));
-  document.getElementById('tprev').addEventListener('click', () => goTo(current - 1));
+  next.addEventListener('click', () => goTo(current + 1));
+  previous.addEventListener('click', () => goTo(current - 1));
   dots.forEach(d => d.addEventListener('click', () => goTo(parseInt(d.dataset.idx))));
-  setInterval(() => goTo(current + 1), 5000);
+  if (!reducedMotion) setInterval(() => goTo(current + 1), 5000);
 }
 
 // ── CONTACT FORM ──────────────────────────────────────────────
@@ -288,17 +303,20 @@ function initContactForm() {
   const form = document.getElementById('contact-form');
   const success = document.getElementById('form-success');
   const btn = document.getElementById('submit-btn');
+  if (!form || !success || !btn) return;
   form.addEventListener('submit', e => {
     e.preventDefault();
-    btn.querySelector('.submit-text').textContent = 'Sending...';
-    btn.disabled = true;
-    setTimeout(() => {
-      form.reset();
-      btn.querySelector('.submit-text').textContent = 'Send Message';
-      btn.disabled = false;
-      success.classList.add('show');
-      setTimeout(() => success.classList.remove('show'), 4000);
-    }, 1800);
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    const name = document.getElementById('f-name').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const message = document.getElementById('f-msg').value.trim();
+    const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    window.location.href = `mailto:contact@aadi.com?subject=${subject}&body=${body}`;
+    success.classList.add('show');
   });
 }
 
